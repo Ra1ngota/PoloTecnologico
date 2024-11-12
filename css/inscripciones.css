@@ -1,0 +1,363 @@
+:root {
+    --primario: #2EC4FA;
+    --primarioOscuro: #1f96c1;
+    --secundario: #D89F6C;
+    --secunadrioClaro: #ff8921;
+    --verde: #C4DD09;
+    --blanco: #fff;
+    --negro: #000;
+    --gris: #a0a4a8;
+    --grisOscuro: #5d5f60;
+    --grisClaro: #f1f3f5;
+    --palletclaro: #fdf498;
+    --vilegend: #7bc043;
+    /* Color para botones y elementos destacados */
+    --fuentePrincipal: "SoDo Sans SemiBold", Helvetica, Arial, sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+    /* Establece el box-sizing por defecto */
+    font-size: 62.5%;
+    /* Define la base del tamaño de fuente a 62.5% para facilitar el uso de rem */
+    scroll-snap-type: y mandatory;
+    /* Configura el scroll snap en el eje y */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/* Hereda el box-sizing de html */
+
+/* Globales */
+body {
+    background-color: var(--blanco);
+    font-size: 2rem;
+    /* Define la altura de línea */
+    font-family: var(--fuentePrincipal);
+}
+
+p {
+    font-size: 1.8rem;
+    color: var(--gris);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primario);
+}
+
+img {
+    max-width: 100%;
+}
+
+h1,
+h2 {
+    text-align: center;
+    color: var(--primarioOscuro);
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+h3 {
+    font-size: 2.8rem;
+}
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+}
+
+/* Navegación Principal */
+nav {
+    height: 9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 50, 158, 0.61);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(0, 50, 158, 0.61);
+    box-shadow: 0px 4px 5px 0px rgba(0, 50, 158, 0.61);
+}
+  
+.nav-izquierda {
+    align-items: center;
+    margin-left: 0rem;
+}
+  
+.logo {
+    display: flex;
+}
+  
+.logo img {
+    height: 5rem;
+}
+  
+.separacion {
+    width: 2rem;
+}
+  
+.links-container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+  
+.links {
+    height: 100%;
+    padding: 0 2.2rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--negro);
+    font-size: 1.7rem;
+}
+  
+.links:hover {
+    color: var(--primarioOscuro);
+}
+  
+nav svg {
+    fill: var(--text-color);
+}
+  
+#sidebar-active {
+    display: none;
+}
+  
+.open-sidebar-button,
+.close-sidebar-button {
+    display: none;
+}
+  
+@media (max-width: 767px) {
+    .links-container {
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 10;
+        width: 300px;
+        background-color: var(--blanco);
+        box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+        transition: 0.75s ease-out;
+    } 
+
+  
+    .links {
+        box-sizing: border-box;
+        height: auto;
+        width: 100%;
+        padding: 20px 30px;
+        justify-content: flex-start;
+    }
+    
+    .open-sidebar-button {
+        position: absolute;
+        right: 0;
+        top: 10px;
+    }
+    
+    .open-sidebar-button,
+    .close-sidebar-button {
+        padding: 20px;
+        display: block;
+        cursor: pointer;
+    }
+    
+    #sidebar-active:checked~.links-container {
+        right: 0;
+    }
+    
+    #sidebar-active:checked~#overlay {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9;
+    }
+}
+
+/* Hero Section */
+.hero {
+    background-image: linear-gradient(to bottom, var(--primario), var(--primarioOscuro));
+    background-size: 100% 300px;
+    background-position: 0% 100%;
+    transition: background-position 0.5s ease-out;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--blanco);
+}
+
+.hero h1 {
+    font-size: 4rem;
+}
+
+.hero p {
+    font-size: 2rem;
+}
+
+.hero .btn-register {
+    background-color: var(--primarioOscuro);
+    color: var(--blanco);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.hero .btn-register:hover {
+    background-color: var(--primario);
+}
+
+/* Courses Section */
+.courses {
+    padding: 4rem;
+}
+
+.courses h2 {
+    margin-bottom: 2rem;
+}
+
+.courses ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.courses li {
+    padding: 2rem;
+    border-bottom: 1px solid var(--grisClaro);
+}
+
+.courses li:last-child {
+    border-bottom: none;
+}
+
+.courses a {
+    color: var(--primario);
+}
+
+.courses a:hover {
+    color: var(--primarioOscuro);
+}
+
+/* Registration Section */
+.registration {
+    padding: 4rem;
+}
+
+.registration h2 {
+    margin-bottom: 2rem;
+}
+
+.registration form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registration label {
+    margin-bottom: 1rem;
+}
+
+.registration input,
+.registration select {
+    padding: 1rem;
+    border: 1px solid var(--grisClaro);
+    border-radius: 0.5rem;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.registration button[type="submit"] {
+    background-color: var(--primarioOscuro);
+    color: var(--blanco);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.registration button[type="submit"]:hover {
+    background-color: var(--primario);
+}
+
+/* Footer */
+.footer {
+    padding: 4rem 0;
+    font-family: 'Segoe UI';
+    font-weight: 400;
+    background-color: #6d6d6d;
+}
+
+.social {
+    text-align: center;
+    padding-bottom: 2.5rem;
+    color: var(--negro);
+}
+
+.social a {
+    font-size: 2.4rem;
+    color: inherit;
+    border: 1px solid #ccc;
+    width: 4rem;
+    height: 4rem;
+    line-height: 3.8rem;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 8px;
+    opacity: 0.75;
+}
+
+.social a:hover {
+    opacity: 1;
+}
+
+.footer ul {
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.footer ul li a {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.footer ul li {
+    display: inline-block;
+    padding: 0 1.5rem;
+}
+
+.footer ul li a:hover {
+    opacity: 1;
+}
+
+.copyright {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 1.4rem;
+    color: #aaa;
+}   
